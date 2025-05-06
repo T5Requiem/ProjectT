@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4hefghjy3o7k"]
+
+[ext_resource type="Texture2D" uid="uid://dslk6aj4b7xgt" path="res://resource/gradient.jpg" id="1_hrjdj"]
+[ext_resource type="Texture2D" uid="uid://bot14q7j60pgc" path="res://resource/alien.png" id="2_5qwfo"]
+[ext_resource type="Script" path="res://script/camera.gd" id="2_ka2o0"]
+[ext_resource type="Script" path="res://script/player.gd" id="3_muk7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2n4bx"]
+size = Vector2(106, 76)
+
+[node name="LevelOne" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(3840, -1080)
+scale = Vector2(2, 2)
+texture = ExtResource("1_hrjdj")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("2_ka2o0")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("3_muk7f")
+
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_2n4bx")
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_5qwfo")
