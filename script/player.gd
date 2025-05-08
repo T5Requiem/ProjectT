@@ -1,29 +1,52 @@
 extends CharacterBody2D
 
-@export var movementSpeed: float = 500.0
-
 @onready var background = get_node("../Background")
 @onready var playerSprite = $PlayerSprite
 
 @onready var playerSize = playerSprite.texture.get_size() * playerSprite.scale
 
-# Called when the node enters the scene tree for the first time.
+@export var maxPlayerHealth: int = 100
+@export var playerHealth: int = maxPlayerHealth
+@export var movementSpeed: float = 50000.0
+@export var gravity: float = 4000.0
+@export var jumpForce: float = 100000.0
+@export var isJumping: bool = false
+
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
-	
-	if Input.is_action_pressed("UP") and position.y > -1080*3+playerSize.y/2:
-		direction.y -= 1
-	if Input.is_action_pressed("DOWN") and position.y < 1080-playerSize.y/2:
-		direction.y += 1
 	if Input.is_action_pressed("LEFT") and position.x > 0+playerSize.x/2:
 		direction.x -= 1
-	if Input.is_action_pressed("RIGHT") and position.x < 3840*2-playerSize.x/2: 
+	if Input.is_action_pressed("RIGHT") and position.x < 38402-playerSize.x/2: 
 		direction.x += 1
 	
-	velocity = direction * movementSpeed
+	direction = direction.normalized()
+	velocity.x = direction.x * movementSpeed * delta
+	
+	if not is_on_floor():
+		if Input.is_action_just_pressed("JUMP") and !isJumping:
+			velocity.y = -jumpForce * delta
+			isJumping = true
+		velocity.y += gravity * delta
+	else:
+		isJumping = false
+		if Input.is_action_just_pressed("JUMP"):
+			velocity.y = -jumpForce * delta
+	
+	if (position.y > 1500):
+		playerTakeDamage(maxPlayerHealth)
+	
 	move_and_slide()
+
+func playerTakeDamage(damage: int) -> void:
+	playerHealth -= damage
+	if playerHealth <= 0:
+		die()
+
+func die() -> void:
+	velocity = Vector2(0, 0)
+	position = Vector2(1200, 400)
+	playerHealth = maxPlayerHealth
+	
