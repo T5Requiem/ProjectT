@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7g1yw0dlkfuk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m6jy8"]
+font_size = 50
+font_color = Color(1, 0.898039, 0, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Coins" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 89.0
+label_settings = SubResource("LabelSettings_m6jy8")

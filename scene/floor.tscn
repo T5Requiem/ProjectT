@@ -10,6 +10,7 @@ gradient = SubResource("Gradient_b6nc6")
 
 [node name="StaticBody2D" type="StaticBody2D"]
 position = Vector2(1724, 993)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4j1fc")

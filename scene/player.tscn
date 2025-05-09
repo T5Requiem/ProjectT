@@ -8,6 +8,7 @@ size = Vector2(106, 76)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(1200, 400)
+collision_mask = 7
 script = ExtResource("1_qtkpk")
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]

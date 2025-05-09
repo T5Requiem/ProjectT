@@ -2,18 +2,21 @@ extends CharacterBody2D
 
 @onready var background = get_node("../Background")
 @onready var playerSprite = $PlayerSprite
+@onready var hudCoins = get_node("../Camera/HUD/Coins")
 
 @onready var playerSize = playerSprite.texture.get_size() * playerSprite.scale
 
 @export var maxPlayerHealth: int = 100
 @export var playerHealth: int = maxPlayerHealth
 @export var movementSpeed: float = 50000.0
-@export var gravity: float = 4000.0
+@export var gravity: float = 5000.0
 @export var jumpForce: float = 100000.0
 @export var isJumping: bool = false
+@export var coins: int = 0
 
 func _ready() -> void:
-	pass
+	add_to_group("player")
+	hudCoins.text = "COINS: " + str(coins)
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
@@ -40,6 +43,11 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func collectCoin() -> void:
+	coins += 1
+	hudCoins.text = "COINS: " + str(coins)
+
+
 func playerTakeDamage(damage: int) -> void:
 	playerHealth -= damage
 	if playerHealth <= 0:
@@ -48,5 +56,7 @@ func playerTakeDamage(damage: int) -> void:
 func die() -> void:
 	velocity = Vector2(0, 0)
 	position = Vector2(1200, 400)
+	coins = 0
+	hudCoins.text = "COINS: " + str(coins)
 	playerHealth = maxPlayerHealth
 	
