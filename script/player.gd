@@ -14,15 +14,26 @@ extends CharacterBody2D
 @export var isJumping: bool = false
 @export var coins: int = 0
 
+var ready_to_move := false
+
 func _ready() -> void:
 	add_to_group("player")
 	hudCoins.text = "COINS: " + str(coins)
 
+	await get_tree().process_frame
+	ready_to_move = true
+
 func _physics_process(delta: float) -> void:
+	if !is_inside_tree():
+		return
+
+	if get_tree().paused:
+		return
+
 	var direction = Vector2.ZERO
-	if Input.is_action_pressed("LEFT") and position.x > 0+playerSize.x/2:
+	if Input.is_action_pressed("LEFT") and position.x > 0 + playerSize.x / 2:
 		direction.x -= 1
-	if Input.is_action_pressed("RIGHT") and position.x < 38402-playerSize.x/2: 
+	if Input.is_action_pressed("RIGHT") and position.x < 38402 - playerSize.x / 2: 
 		direction.x += 1
 	
 	direction = direction.normalized()
@@ -38,10 +49,11 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("JUMP"):
 			velocity.y = -jumpForce * delta
 	
-	if (position.y > 1500):
+	if position.y > 1500:
 		playerTakeDamage(maxPlayerHealth)
-	
-	move_and_slide()
+
+	if is_inside_tree() and is_instance_valid(self):
+		move_and_slide()
 
 func collectCoin() -> void:
 	coins += 1
@@ -53,10 +65,6 @@ func playerTakeDamage(damage: int) -> void:
 	if playerHealth <= 0:
 		die()
 
+
 func die() -> void:
-	velocity = Vector2(0, 0)
-	position = Vector2(1200, 400)
-	coins = 0
-	hudCoins.text = "COINS: " + str(coins)
-	playerHealth = maxPlayerHealth
-	
+	get_tree().reload_current_scene()
