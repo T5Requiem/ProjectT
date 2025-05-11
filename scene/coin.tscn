@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://col63m65lp78l"]
+[gd_scene load_steps=5 format=3 uid="uid://col63m65lp78l"]
 
-[ext_resource type="Script" uid="uid://cqxs3i73s88i2" path="res://script/coin.gd" id="1_ucf05"]
-[ext_resource type="PackedScene" uid="uid://dphrmeeimscy1" path="res://resource/orb3.aseprite" id="2_ya73g"]
+[ext_resource type="Script" uid="uid://cqxs3i73s88i2" path="res://script/balls.gd" id="1_ucf05"]
+[ext_resource type="PackedScene" uid="uid://bb3gjtx8b5m3q" path="res://resource/orb3.aseprite" id="2_ya73g"]
+[ext_resource type="Script" uid="uid://dxny2vs5bxb8d" path="res://script/ballsAnimation.gd" id="3_leebs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8s447"]
 radius = 28.0
 
-[node name="Coin" type="Area2D"]
+[node name="Balls" type="Area2D"]
 scale = Vector2(1.5, 1.5)
 collision_layer = 4
 script = ExtResource("1_ucf05")
@@ -15,6 +16,7 @@ script = ExtResource("1_ucf05")
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_8s447")
 
-[node name="orb3" parent="." instance=ExtResource("2_ya73g")]
+[node name="BallsSprite" parent="." instance=ExtResource("2_ya73g")]
+script = ExtResource("3_leebs")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

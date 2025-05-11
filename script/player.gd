@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var background = get_node("../Background")
 @onready var playerSprite = $PlayerSprite
-@onready var hudCoins = get_node("../Camera/HUD/Coins")
+@onready var hudBalls = get_node("../Camera/HUD/BallsLabel")
 
 @onready var playerSize = playerSprite.texture.get_size() * playerSprite.scale
 
@@ -12,13 +12,13 @@ extends CharacterBody2D
 @export var gravity: float = 5000.0
 @export var jumpForce: float = 100000.0
 @export var isJumping: bool = false
-@export var coins: int = 0
+@export var balls: int = 0
 
 var ready_to_move := false
 
 func _ready() -> void:
 	add_to_group("player")
-	hudCoins.text = "COINS: " + str(coins)
+	hudBalls.text = str(balls)
 
 	await get_tree().process_frame
 	ready_to_move = true
@@ -55,9 +55,9 @@ func _physics_process(delta: float) -> void:
 	if is_inside_tree() and is_instance_valid(self):
 		move_and_slide()
 
-func collectCoin() -> void:
-	coins += 1
-	hudCoins.text = "COINS: " + str(coins)
+func collectBalls() -> void:
+	balls += 1
+	hudBalls.text = str(balls)
 
 
 func playerTakeDamage(damage: int) -> void:
