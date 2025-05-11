@@ -14,10 +14,18 @@ config/name="ProjectT"
 run/main_scene="res://scene/level_one.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 
+[aseprite_importers]
+
+aseprite_executable_path="C:/PC/Steam/steamapps/common/Aseprite/Aseprite.exe"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
 [input]
 
@@ -39,4 +47,5 @@ JUMP={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
