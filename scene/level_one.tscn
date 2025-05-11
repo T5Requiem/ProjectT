@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d4hefghjy3o7k"]
 
 [ext_resource type="Texture2D" uid="uid://dslk6aj4b7xgt" path="res://resource/gradient.jpg" id="1_hrjdj"]
-[ext_resource type="Script" path="res://script/camera.gd" id="2_ka2o0"]
+[ext_resource type="Script" uid="uid://dpbvfxd8wo7rg" path="res://script/camera.gd" id="2_ka2o0"]
 [ext_resource type="PackedScene" uid="uid://wapubwvoskjo" path="res://scene/player.tscn" id="3_ly04d"]
 [ext_resource type="PackedScene" uid="uid://ue2khmb1wfy4" path="res://scene/floor.tscn" id="4_reaq6"]
 [ext_resource type="PackedScene" uid="uid://col63m65lp78l" path="res://scene/coin.tscn" id="5_n3ot6"]
