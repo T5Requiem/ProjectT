@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://col63m65lp78l"]
 
 [ext_resource type="Script" uid="uid://cqxs3i73s88i2" path="res://script/balls.gd" id="1_ucf05"]
-[ext_resource type="PackedScene" uid="uid://bb3gjtx8b5m3q" path="res://resource/orb3.aseprite" id="2_ya73g"]
-[ext_resource type="Script" uid="uid://dxny2vs5bxb8d" path="res://script/ballsAnimation.gd" id="3_leebs"]
+[ext_resource type="PackedScene" uid="uid://bb3gjtx8b5m3q" path="res://resource/balls.aseprite" id="2_ya73g"]
+[ext_resource type="Script" uid="uid://dxny2vs5bxb8d" path="res://script/balls_animation.gd" id="3_leebs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8s447"]
 radius = 28.0
@@ -12,7 +12,7 @@ scale = Vector2(1.5, 1.5)
 collision_layer = 4
 script = ExtResource("1_ucf05")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BallsCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_8s447")
 

@@ -3,12 +3,12 @@
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
 uid="uid://bb3gjtx8b5m3q"
-path="res://.godot/imported/orb3.aseprite-163d25dd816340ecb8066a161f3efc67.scn"
+path="res://.godot/imported/balls.aseprite-9790730efee22315f974e937fb7f4410.scn"
 
 [deps]
 
-source_file="res://resource/orb3.aseprite"
-dest_files=["res://.godot/imported/orb3.aseprite-163d25dd816340ecb8066a161f3efc67.scn"]
+source_file="res://resource/balls.aseprite"
+dest_files=["res://.godot/imported/balls.aseprite-9790730efee22315f974e937fb7f4410.scn"]
 
 [params]
 

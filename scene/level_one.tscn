@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dpbvfxd8wo7rg" path="res://script/camera.gd" id="2_ka2o0"]
 [ext_resource type="PackedScene" uid="uid://wapubwvoskjo" path="res://scene/player.tscn" id="3_ly04d"]
 [ext_resource type="PackedScene" uid="uid://ue2khmb1wfy4" path="res://scene/floor.tscn" id="4_reaq6"]
-[ext_resource type="PackedScene" uid="uid://col63m65lp78l" path="res://scene/coin.tscn" id="5_n3ot6"]
+[ext_resource type="PackedScene" uid="uid://col63m65lp78l" path="res://scene/balls.tscn" id="5_n3ot6"]
 [ext_resource type="PackedScene" uid="uid://b7g1yw0dlkfuk" path="res://scene/hud.tscn" id="7_ey45p"]
 
 [node name="LevelOne" type="Node2D"]
@@ -25,6 +25,7 @@ offset_right = -920.0
 offset_bottom = -500.0
 
 [node name="Player" parent="." instance=ExtResource("3_ly04d")]
+position = Vector2(1030, 396)
 
 [node name="Floor1" parent="." instance=ExtResource("4_reaq6")]
 position = Vector2(1863, 794)
@@ -32,14 +33,14 @@ position = Vector2(1863, 794)
 [node name="Floor2" parent="." instance=ExtResource("4_reaq6")]
 position = Vector2(6689, 1230)
 
-[node name="Coin" parent="." instance=ExtResource("5_n3ot6")]
+[node name="Balls" parent="." instance=ExtResource("5_n3ot6")]
 position = Vector2(3205, 35)
 
-[node name="Coin2" parent="." instance=ExtResource("5_n3ot6")]
+[node name="Balls2" parent="." instance=ExtResource("5_n3ot6")]
 position = Vector2(7443, 322)
 
-[node name="Coin3" parent="." instance=ExtResource("5_n3ot6")]
+[node name="Balls3" parent="." instance=ExtResource("5_n3ot6")]
 position = Vector2(232, 247)
 
-[node name="Coin4" parent="." instance=ExtResource("5_n3ot6")]
+[node name="Balls4" parent="." instance=ExtResource("5_n3ot6")]
 position = Vector2(4878, 655)
