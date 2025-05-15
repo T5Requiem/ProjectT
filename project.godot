@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.4", "Mobile")
 
 [aseprite_importers]
 
-aseprite_executable_path="C:/PC/Steam/Steam/steamapps/common/Aseprite/Aseprite.exe"
+aseprite_executable_path="C:\\PC\\Steam\\steamapps\\common\\Aseprite\\Aseprite.exe"
 
 [display]
 

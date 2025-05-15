@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://wapubwvoskjo"]
 
 [ext_resource type="Script" uid="uid://bbewpbb1y5js6" path="res://script/player.gd" id="1_qtkpk"]
-[ext_resource type="PackedScene" uid="uid://byvnyc10560vq" path="res://resource/player.aseprite" id="2_hjaqi"]
+[ext_resource type="PackedScene" uid="uid://cwbf84saxbyl4" path="res://resource/player.aseprite" id="2_hjaqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n4bx"]
 size = Vector2(64, 90)
@@ -14,6 +14,6 @@ script = ExtResource("1_qtkpk")
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_2n4bx")
 
-[node name="PlayerAnimationSprite" parent="." instance=ExtResource("2_hjaqi")]
+[node name="PlayerAnimatedSprite" parent="." instance=ExtResource("2_hjaqi")]
 scale = Vector2(2, 2)
-animation = &"Idle"
+animation = &"Jumping"

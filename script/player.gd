@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var hudBalls = get_node("../Camera/HUD/BallsLabel")
 @onready var playerShape = $PlayerCollisionShape
-@onready var playerAnimationSprite = $PlayerAnimationSprite
+@onready var playerAnimatedSprite = $PlayerAnimatedSprite
 
 @onready var playerSize = playerShape.shape.size
 
@@ -36,30 +36,33 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("LEFT") and !Input.is_action_pressed("RIGHT"):
 		if position.x > 0 + playerSize.x / 2:
 			direction.x -= 1
-		playerAnimationSprite.flip_h = true
+		playerAnimatedSprite.flip_h = true
 		isMoving = true
 	elif Input.is_action_pressed("RIGHT") and !Input.is_action_pressed("LEFT"):
 		if position.x < 3834 * 2 - playerSize.x / 2:
 			direction.x += 1
-		playerAnimationSprite.flip_h = false
+		playerAnimatedSprite.flip_h = false
 		isMoving = true
 	
 	direction = direction.normalized()
 	velocity.x = direction.x * movementSpeed * delta
 	
 	if not is_on_floor():
-		playerAnimationSprite.play("Idle")
+		if velocity.y > 0:
+			playerAnimatedSprite.play("Falling")
 		if Input.is_action_just_pressed("JUMP") and !isJumping:
 			velocity.y = -jumpForce * delta
 			isJumping = true
+			playerAnimatedSprite.play("Jumping")
 		velocity.y += gravity * delta
 	else:
 		if isMoving:
-			playerAnimationSprite.play("Running")
+			playerAnimatedSprite.play("Running")
 		else:
-			playerAnimationSprite.play("Idle")
+			playerAnimatedSprite.play("Idle")
 		isJumping = false
 		if Input.is_action_just_pressed("JUMP"):
+			playerAnimatedSprite.play("Jumping")
 			velocity.y = -jumpForce * delta
 	
 	if position.y > 1500:

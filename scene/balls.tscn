@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://col63m65lp78l"]
+[gd_scene load_steps=4 format=3 uid="uid://col63m65lp78l"]
 
-[ext_resource type="Script" uid="uid://cqxs3i73s88i2" path="res://script/balls.gd" id="1_ucf05"]
-[ext_resource type="PackedScene" uid="uid://bb3gjtx8b5m3q" path="res://resource/balls.aseprite" id="2_ya73g"]
-[ext_resource type="Script" uid="uid://dxny2vs5bxb8d" path="res://script/balls_animation.gd" id="3_leebs"]
+[ext_resource type="Script" path="res://script/balls.gd" id="1_ucf05"]
+[ext_resource type="PackedScene" uid="uid://cwu0r88jq0qfj" path="res://resource/balls.aseprite" id="2_bs5ls"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8s447"]
 radius = 28.0
@@ -16,7 +15,6 @@ script = ExtResource("1_ucf05")
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_8s447")
 
-[node name="BallsSprite" parent="." instance=ExtResource("2_ya73g")]
-script = ExtResource("3_leebs")
+[node name="BallsAnimatedSprite" parent="." instance=ExtResource("2_bs5ls")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
