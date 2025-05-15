@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7g1yw0dlkfuk"]
 
-[ext_resource type="PackedScene" uid="uid://bb3gjtx8b5m3q" path="res://resource/balls.aseprite" id="1_s3k51"]
-[ext_resource type="Script" uid="uid://dxny2vs5bxb8d" path="res://script/balls_animation.gd" id="2_o8u2p"]
+[ext_resource type="PackedScene" uid="uid://cwu0r88jq0qfj" path="res://resource/balls.aseprite" id="1_s3k51"]
+[ext_resource type="Script" path="res://script/balls_animation.gd" id="2_o8u2p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m6jy8"]
 font_size = 50
@@ -21,6 +21,6 @@ offset_right = 270.0
 offset_bottom = 79.0
 label_settings = SubResource("LabelSettings_m6jy8")
 
-[node name="BallsSprite" parent="." instance=ExtResource("1_s3k51")]
+[node name="BallsAnimatedSprite" parent="." instance=ExtResource("1_s3k51")]
 position = Vector2(50, 50)
 script = ExtResource("2_o8u2p")
